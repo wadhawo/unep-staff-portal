@@ -1,0 +1,168 @@
+
+
+<div class="w3-hide w3-modal w3-light-gray" id="login_modal" style="opacity: 1;">
+    <div class="w3-modal-content w3-animate-top w3-white w3-row w3-card-2 w3-round w3-cell-row" style="width: 70%;">
+           <div class="w3-half w3-cell">
+                <div class="w3-padding w3-show w3-white" id="loginFormContainer">
+                    <p class="w3-text-2020-flame-scarlet"><b>Login</b></p>
+
+                    <div class="w3-container">
+                        <form id="loginForm" method="post">
+                            <label for="login_username"><b>Username:</b></label><br>
+                            <input type="text" class="w3-input w3-border w3-round-xlarge" name="login_username" id="login_username" required><br>
+                            <label for="login_password"><b>Password:</b></label><br>
+                            <input type="password" class="w3-input w3-border w3-round-xlarge" name="login_password" id="login_password" required><br> 
+
+                            <button onclick="event.preventDefault(); validateLoginForm();" class="w3-button w3-round lattice-gradient">Login</button>
+                        </form>
+                        <p class="w3-text-2020-flame-scarlet">Don't have an account? <span onclick="toggleLoginSignup('Registration');" class="w3-text-blue">Register here!</span></p>
+
+                    </div>
+                </div>
+                <div class="w3-padding w3-hide w3-white" id="signupFormContainer">
+                    <p class="w3-text-2020-flame-scarlet w3-center"><b>Register New User</b></p>
+
+                    <div class="w3-container">
+                        <form id="signupForm" method="post" style="font-size: 12px;">
+                            <div>
+                                <div class="w3-half">
+                                    <label for="role"><b>Role:</b></label><br>
+                                    <select class="w3-select w3-border w3-round-xlarge w3-input" name="role" id="role" required>
+                                        <option disabled selected></option>
+                                        <option value="admin">Admin</option>
+                                        <option value="farmer">Farmer</option>
+                                        <option value="supplier">Supplier</option>
+                                    </select><br>
+                                </div>
+                                <div class="w3-half">
+                                    <label for="country"><b>Country:</b></label><br>
+                                    <select class="w3-select w3-border w3-round-xlarge w3-input" name="country" id="country" required>
+                                        <option disabled selected></option>
+                                        <option>Kenya</option>
+                                        <option>Uganda</option>
+                                        <option>Tanzania</option>
+                                        <option>Ghana</option>
+                                        <option>Nigeria</option>
+                                        <option>Zambia</option>
+                                        <option>DRC</option>
+                                    </select><br>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="w3-half">
+                                    <label for="first_name"><b>First Name:</b></label><br>
+                                    <input type="text" class="w3-input w3-border w3-round-xlarge" name="first_name" id="first_name" required><br>
+                                </div>
+                                <div class="w3-half">
+                                    <label for="last_name"><b>Last Name:</b></label><br>
+                                    <input type="text" class="w3-input w3-border w3-round-xlarge" name="last_name" id="last_name" required><br>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="w3-half">
+                                    <label for="username"><b>Username:</b></label><br>
+                                    <input type="text" class="w3-input w3-border w3-round-xlarge" name="username" id="username" required><br>
+                                </div>
+                                <div class="w3-half">
+                                    <label for="password"><b>Password:</b></label><br>
+                                    <input type="password" class="w3-input w3-border w3-round-xlarge" name="password_hash" id="password_hash" required><br>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="w3-half">
+                                    <label for="phone_number"><b>Phone:</b></label><br>
+                                    <input type="tel" class="w3-input w3-border w3-round-xlarge" name="phone_number" id="phone_number" required><br>
+                                </div>
+                                <div class="w3-half">
+                                    <label for="email"><b>Email:</b></label><br>
+                                    <input type="email" class="w3-input w3-border w3-round-xlarge" name="email" id="email" required><br>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="w3-half">
+                                    <button onclick="event.preventDefault(); validateRegForm();" class="w3-button w3-highway-green w3-hover-border-green w3-hover-green w3-half w3-round-xlarge w3-mobile">Register</button>
+                                    <button id="closeRegBtn" class=" w3-half w3-btn w3-highway-red w3-hide w3-round-xlarge w3-mobile" onclick=" event.preventDefault(); showHide('login_modal');">Close</button>
+                                </div>
+                            </div>
+                            
+                        </form>
+                        <br/>
+                        <p class="w3-text-2020-flame-scarlet" id="toggleButton">Already have an account? <a href="#" onclick="toggleLoginSignup('Login');">Login here!</a></p>
+
+                    </div>
+                </div>
+           </div>
+            <div class="w3-half w3-center w3-cell">
+                    <div class="w3-content" style="height: 60%;">
+                        <img src="files/logo/unep_logo.png" alt="Login" style="width: 100%; height: 100%;" class="w3-image">
+                    </div>
+
+                    <div class="w3-content w3-blue" style="height: 40%;">
+                        <p class="w3-text w3-large">
+                            Welcome to the UNEP Staff Skills Management Portal, an online platform designed to streamline staff rostering, profile management, and reporting. This system enables UNEP to efficiently store, manage, and track the technical skills, expertise, and availability of its staff.
+                        </p>
+                    </div>
+            </div>
+    </div>
+    </div><!--end of modal content--><!--end of modal-->
+</div>
+
+<div id="microfinance_modal" class="w3-hide w3-modal">
+    <div class="w3-modal-content w3-animate-top" style="width: 70%;">
+        <div class="w3-panel" style="background: linear-gradient(to right, #2980B9,#C0392B); width: 100%;">
+            <h2 class="w3-xlarge">Linkage to Financial Services</h2>
+            <span onclick="showHide('microfinance_modal')" class="w3-button w3-display-topright w3-hover-red">&times;
+            </span>
+        </div>
+
+        <div class="w3-card-4">
+            <header class="w3-container" style="background: linear-gradient(to right, #2980B9,#C0392B);">
+              <h3>Kenya Women Microfinance Bank PLC</h3>
+            </header>
+            <div class="w3-container">
+              <p><b>Postal Address:</b> P. O. Box 4179-00506, Nairobi</p>
+              <p><b>Telephone:</b> +254 - 020 - 3067000, 2470272-5/2715334-5, 0729920920, 0732633332, 0703 - 067000</p>
+              <p><b>Email:</b> info@kwftbank.com</p>
+              <p><b>Website:</b> www.kwftbank.com</p>
+              <p><b>Physical Address:</b> Akira House, Kiambere Road, Upper Hill, Nairobi</p>
+              <p><b>Date Licenced:</b> 31.03.2010</p>
+              <p><b>Branches:</b> 31</p>
+            </div>
+          </div>
+        
+          <div class="w3-card-4">
+            <header class="w3-container" style="background: linear-gradient(to right, #2980B9,#C0392B);">
+              <h3>Rafiki Microfinance Bank Limited</h3>
+            </header>
+            <div class="w3-container">
+              <p><b>Postal Address:</b> P. O. Box 12755 - 00400, Nairobi</p>
+              <p><b>Telephone:</b> +254-020-2166401/0730 170 000/500</p>
+              <p><b>Email:</b> info@rafiki.co.ke</p>
+              <p><b>Website:</b> www.rafiki.co.ke</p>
+              <p><b>Physical Address:</b> Rafiki House, Biashara Street, Nairobi</p>
+              <p><b>Date Licenced:</b> 14.06.2011</p>
+              <p><b>Branches:</b> 17</p>
+            </div>
+          </div>
+        
+          <div class="w3-card-4">
+            <header class="w3-container" style="background: linear-gradient(to right, #2980B9,#C0392B);">
+              <h3>Key Microfinance Bank PLC</h3>
+            </header>
+            <div class="w3-container">
+              <p><b>Postal Address:</b> P. O. Box 20833 - 00100, Nairobi</p>
+              <p><b>Telephone:</b> +254 - 020 - 2214483/2215384/ 2215387/8/9, 2631070, 2215380, 2215384/5/7/8/9, 0733-554555</p>
+              <p><b>Email:</b> info@keymicrofinancebank.com</p>
+              <p><b>Website:</b> www.keymicrofinancebnk.com</p>
+              <p><b>Physical Address:</b> Finance House, 14th Floor, Loita Street, Nairobi</p>
+              <p><b>Date Licenced:</b> 31.12.2010</p>
+              <p><b>Branches:</b> 2</p>
+            </div>
+          </div>
+
+        <!-- Close the modal screen -->
+        <div class="w3-clear"></div>
+    </div>
+</div>

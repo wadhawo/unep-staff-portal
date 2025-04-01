@@ -1,0 +1,15 @@
+.lattice-gradient {
+    background: linear-gradient(to right, #C0392B, #2980B9); /* Adjust colors as needed */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    /*border-radius: 5px;*/
+  }
+
+  .blue-green-gradient {
+    background-image: linear-gradient(to bottom right, #0c5cf0e7, #0c6e4f);
+    color: #fff;
+  }
