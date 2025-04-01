@@ -27,114 +27,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
     }else if (isset($_POST["login_username"]) && isset($_POST["login_password"])) {
         $response = $db->authenticateUser($_POST["login_username"], $_POST["login_password"]);
-    }elseif (isset($_FILES['product_photo']) && $_FILES['product_photo']['error'] === 0) {
-        $file = $_FILES['product_photo'];
-
-        // Validate the file's extension
-        $allowedExtensions = ['jpg', 'jpeg', 'png'];
-        $filename = $file['name'];
-        $extension = pathinfo($filename, PATHINFO_EXTENSION);
-        if (!in_array($extension, $allowedExtensions)) {
-            $response = json_encode(['success' => false, 'message' => 'Error: Please select a valid image file (JPEG/PNG/JPG).', 'data' => []]);
-        }
-
-        // Generate a unique filename to avoid overwriting existing files
-        $newFilename = uniqid() . '_' . $filename;
-        
-        // Define the upload path (e.g., within your project's "uploads" directory)
-        $uploadPath = '../files/product_images/' . $newFilename;
-
-        // Move the uploaded file to the defined path
-        if (move_uploaded_file($file['tmp_name'], $uploadPath)) {
-            // Initialize an array to hold form data
-            $data = [];
-
-            // Loop through $_POST to capture all form fields except 'product_photo'
-            foreach ($_POST as $key => $value) {
-                if ($key !== 'product_photo' && $key !== 'gps_coordinates' && $key !== 'submission_type' && $key !== 'product_id') { // Skip 'product_photo','submission_type','gps_coordinates'
-                    $data[$key] = $value;
-                }
-            }
-            $data['image_url'] = $newFilename; // Add 'image_url' to the data array
-            
-            
-            if($_POST["submission_type"] == "add"){ 
-                $data['user_id'] = $_SESSION['user_id']; 
-                $response = $db->insertData("ProductListings", $data); // Insert data into the databasey
-
-                // Decode the JSON response
-                $responseArray = json_decode($response, true);
-
-                // Check if the operation was successful and retrieve the last_insert ID
-                if ($responseArray['success']) {
-                    $lastInsertId = $responseArray['last_insert'];
-                    #Send data to other tables where product_id is foreign key -InventoryHistory
-                    $db->insertData("InventoryHistory", [
-                        "product_id" => $lastInsertId,
-                        "old_quantity" => 0,
-                        "new_quantity" => $_POST["stock_quantity"],
-                        "new_price" => $_POST["price"],
-                        "change_type" => "in"
-                    ]);
-                    $db->insertData("Logs", ["description"=>"Create: New InventoryHistory entry", "gps_coordinates"=>gpsStringToJSON($_POST["gps_coordinates"]), "user_id"=>$_SESSION['user_id']]);
-                }
-
-                $db->insertData("Logs", ["description"=>"Create: New product listing", "gps_coordinates"=>gpsStringToJSON($_POST["gps_coordinates"]), "user_id"=>$_SESSION['user_id']]);
-            }else{
-                $response = $db->updateData("ProductListings", $_POST["product_id"], $data); // Update data into the database
-                $db->insertData("Logs", ["description"=>"Update: product listing", "gps_coordinates"=>gpsStringToJSON($_POST["gps_coordinates"]), "user_id"=>$_SESSION['user_id']]);
-            }
-
-            #$response = json_encode(['success' => true, 'message' => 'The image has been successfully uploaded.', 'data' => []]);
-        } else {
-            $response = json_encode(['success' => false, 'message' => 'Error: An error occurred while uploading the image.', 'data' => []]);
-        }
+    }elseif (isset($_POST["index_number"])){
+        $response = $db->insertData("staff", $_POST);
     }elseif (isset($_POST["get_offline_data"]) && isset($_POST["user_id"]) && isset($_POST["role"])){
         if($_POST["user_id"] == $_SESSION["user_id"] && $_POST["role"] == $_SESSION["role"]){
             $dta = getOfflineData();
             $response = json_encode(['success' => true, 'message' => 'Data fetched successfully', 'data' => $dta]);
         }else{ $response = json_encode(['success' => false, 'message' => 'Permission error', 'data' => []]); }
-    }elseif (isset($_POST["cart_items"])) {
-        $data = [];
-        // Loop through $_POST to capture all form fields except 'cart_items'
-        foreach ($_POST as $key => $value) {
-            if ($key !== 'cart_items') { // Skip 'cart_items' which carries transactions data
-                $data[$key] = $value;
-            }
-        }
-    
-        // Insert data into OrderDetails and get the last insert ID
-        $order_response = $db->insertData("OrderDetails", $data);
-        $responseArray = json_decode($order_response, true);
-    
-        if ($responseArray['success']) {
-            $lastInsertId = $responseArray['last_insert'];
-    
-            // Decode the cart_items JSON
-            $cartItems = json_decode($_POST["cart_items"], true);
-    
-            // Loop through each item in the cart and insert into Transactions
-            $tx_response = null;
-            foreach ($cartItems as $item) {
-                $transactionData = [
-                    "order_id" => $lastInsertId,
-                    "user_id" => $data['user_id'],
-                    "product_id" => $item['product_id'],
-                    "quantity" => $item['quantity'],
-                    "price_per_unit" => $item['price'],
-                    "total_price" => $item['total_price']
-                ];
-                $tx_response = $db->insertData("Transactions", $transactionData);
-            }
-            
-            if($tx_response["success"]){
-                $response = json_encode(['success' => true, 'message' => 'Order and transactions recorded successfully.']);
-            }else{
-                $response = json_encode(['success' => false, 'message' => $tx_response["message"], ''=>$tx_response["message"]]);
-            }
-        } else {
-            $response = json_encode(['success' => false, 'message' => $responseArray["message"], 'data' => []]);
-        }
     }else {
         $response = json_encode(['success' => false, 'message' => 'Invalid input', 'data' => []]);
     }
