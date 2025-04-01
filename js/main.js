@@ -296,7 +296,9 @@ window.onload = function() {
         //getOfflineData(); 
       }
       if(window.location.href.includes("admin.html")){  }
-      if(window.location.href.includes("users.html")){ getOfflineData(); showUsersGrid(); alert("Loading data..."); }
+      if(window.location.href.includes("users.html")){ //getOfflineData(); showUsersGrid(); 
+        alert("Loading data..."); 
+      }
 
     }else{ 
       showHide("login_modal"); 

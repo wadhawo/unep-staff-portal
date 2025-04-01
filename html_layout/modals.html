@@ -25,70 +25,99 @@
                         <form id="signupForm" method="post" style="font-size: 12px;">
                             <div>
                                 <div class="w3-half">
-                                    <label for="role"><b>Role:</b></label><br>
-                                    <select class="w3-select w3-border w3-round-xlarge w3-input" name="role" id="role" required>
-                                        <option disabled selected></option>
-                                        <option value="admin">Admin</option>
-                                        <option value="farmer">Farmer</option>
-                                        <option value="supplier">Supplier</option>
-                                    </select><br>
-                                </div>
-                                <div class="w3-half">
-                                    <label for="country"><b>Country:</b></label><br>
-                                    <select class="w3-select w3-border w3-round-xlarge w3-input" name="country" id="country" required>
-                                        <option disabled selected></option>
-                                        <option>Kenya</option>
-                                        <option>Uganda</option>
-                                        <option>Tanzania</option>
-                                        <option>Ghana</option>
-                                        <option>Nigeria</option>
-                                        <option>Zambia</option>
-                                        <option>DRC</option>
-                                    </select><br>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <div class="w3-half">
-                                    <label for="first_name"><b>First Name:</b></label><br>
-                                    <input type="text" class="w3-input w3-border w3-round-xlarge" name="first_name" id="first_name" required><br>
-                                </div>
-                                <div class="w3-half">
-                                    <label for="last_name"><b>Last Name:</b></label><br>
-                                    <input type="text" class="w3-input w3-border w3-round-xlarge" name="last_name" id="last_name" required><br>
+                                    <label for="index_number"><b>Index Number:</b></label><br>
+                                    <input type="text" class="w3-input w3-border w3-round-xlarge" name="index_number" id="index_number" required><br>
                                 </div>
                             </div>
                             <div>
                                 <div class="w3-half">
-                                    <label for="username"><b>Username:</b></label><br>
-                                    <input type="text" class="w3-input w3-border w3-round-xlarge" name="username" id="username" required><br>
-                                </div>
-                                <div class="w3-half">
-                                    <label for="password"><b>Password:</b></label><br>
-                                    <input type="password" class="w3-input w3-border w3-round-xlarge" name="password_hash" id="password_hash" required><br>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="w3-half">
-                                    <label for="phone_number"><b>Phone:</b></label><br>
-                                    <input type="tel" class="w3-input w3-border w3-round-xlarge" name="phone_number" id="phone_number" required><br>
+                                    <label for="full_names"><b>Full Name:</b></label><br>
+                                    <input type="text" class="w3-input w3-border w3-round-xlarge" name="full_names" id="full_names" required><br>
                                 </div>
                                 <div class="w3-half">
                                     <label for="email"><b>Email:</b></label><br>
                                     <input type="email" class="w3-input w3-border w3-round-xlarge" name="email" id="email" required><br>
                                 </div>
                             </div>
-                            
                             <div>
                                 <div class="w3-half">
-                                    <button onclick="event.preventDefault(); validateRegForm();" class="w3-button w3-highway-green w3-hover-border-green w3-hover-green w3-half w3-round-xlarge w3-mobile">Register</button>
-                                    <button id="closeRegBtn" class=" w3-half w3-btn w3-highway-red w3-hide w3-round-xlarge w3-mobile" onclick=" event.preventDefault(); showHide('login_modal');">Close</button>
+                                    <label for="current_location"><b>Current Location:</b></label><br>
+                                    <input type="text" class="w3-input w3-border w3-round-xlarge" name="current_location" id="current_location" required><br>
+                                </div>
+                                <div class="w3-half">
+                                    <label for="highest_education"><b>Highest Level of Education:</b></label><br>
+                                    <select class="w3-select w3-border w3-round-xlarge" name="highest_education" id="highest_education" required>
+                                        <option disabled selected></option>
+                                        <option value="Diploma">Diploma</option>
+                                        <option value="Bachelor's">Bachelor's</option>
+                                        <option value="Master's">Master's</option>
+                                        <option value="PhD">PhD</option>
+                                    </select><br>
                                 </div>
                             </div>
-                            
+                            <div>
+                                <div class="w3-half">
+                                    <label for="duty_station"><b>Duty Station:</b></label><br>
+                                    <select class="w3-select w3-border w3-round-xlarge" name="duty_station" id="duty_station" required>
+                                        <option disabled selected></option>
+                                        <option value="HQ">HQ</option>
+                                        <option value="Regional">Regional</option>
+                                    </select><br>
+                                </div>
+                                <div class="w3-half">
+                                    <label for="remote_work"><b>Availability for Remote Work:</b></label><br>
+                                    <input type="checkbox" name="remote_work" id="remote_work"><br>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="w3-half">
+                                    <label for="software_expertise"><b>Software Expertise:</b></label><br>
+                                    <select class="w3-select w3-border w3-round-xlarge" name="software_expertise" id="software_expertise" required>
+                                        <option disabled selected></option>
+                                        <option value="Python">Python</option>
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="Java">Java</option>
+                                        <option value="PHP">PHP</option>
+                                    </select><br>
+                                </div>
+                                <div class="w3-half">
+                                    <label for="expertise_level"><b>Software Expertise Level:</b></label><br>
+                                    <select class="w3-select w3-border w3-round-xlarge" name="expertise_level" id="expertise_level" required>
+                                        <option disabled selected></option>
+                                        <option value="Beginner">Beginner</option>
+                                        <option value="Intermediate">Intermediate</option>
+                                        <option value="Advanced">Advanced</option>
+                                    </select><br>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="w3-half">
+                                    <label for="language"><b>Language:</b></label><br>
+                                    <select class="w3-select w3-border w3-round-xlarge" name="language" id="language" required>
+                                        <option disabled selected></option>
+                                        <option value="English">English</option>
+                                        <option value="French">French</option>
+                                        <option value="Spanish">Spanish</option>
+                                    </select><br>
+                                </div>
+                                <div class="w3-half">
+                                    <label for="responsibility_level"><b>Level of Responsibility:</b></label><br>
+                                    <select class="w3-select w3-border w3-round-xlarge" name="responsibility_level" id="responsibility_level" required>
+                                        <option disabled selected></option>
+                                        <option value="Junior">Junior</option>
+                                        <option value="Mid">Mid</option>
+                                        <option value="Senior">Senior</option>
+                                    </select><br>
+                                </div>
+                            </div>
+                            <div>
+                                <button onclick="event.preventDefault(); validateRegForm();" class="w3-button w3-highway-green w3-hover-border-green w3-hover-green w3-round-xlarge w3-mobile">Register</button>
+                                <button id="closeRegBtn" class="w3-btn w3-highway-red w3-hide w3-round-xlarge w3-mobile" onclick=" event.preventDefault(); showHide('login_modal');">Close</button>
+                            </div>
                         </form>
+                        
                         <br/>
-                        <p class="w3-text-2020-flame-scarlet" id="toggleButton">Already have an account? <a href="#" onclick="toggleLoginSignup('Login');">Login here!</a></p>
+                        <p class="w3-text-2020-flame-scarlet" id="toggleButton">Already have an account? <a href="#" onclick="">Login here!</a></p>
 
                     </div>
                 </div>
