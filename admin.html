@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en-GB'>
     <head>
-        <title>Lattice Acquaculture</title>
+        <title>UNEP Skills Portal</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="color-scheme" content="light dark">
@@ -10,7 +10,6 @@
         <meta http-equiv="refresh" content="500000">
         <meta name ="author" content="Walter Adhawo">
         <meta name="description" content="A digital platform that facilitates seamless cross-border trade of fish and feeds within the target countries, connecting buyers and sellers, improving market information flow, and enhancing the profitability of all actors in the aquaculture value chain.">
-        <link rel="manifest" href="manifest.json">
         
         <link rel="stylesheet" href="libs/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -58,32 +57,19 @@
         
          <!-- optional: mobile support with jqueryui-touch-punch -->
          <script type="text/javascript" src="libs/jquery-ui-1.14.0/jquery.ui.touch-punch.min-0.2.3.js"></script>
+
+         <!--Tabulator library-->
+         <script src="libs/tabulator/6.3/dependancies/SheetJS/0.20.3/xlsx.full.min.js"></script>
+         <script src="libs/tabulator/6.3/dependancies/jsPDF/dist/jspdf.umd.min.js"></script>
+         <script src="libs/tabulator/6.3/dependancies/luxon-master/src/luxon.js"></script>
+         <link rel="stylesheet" href="libs/tabulator/6.3/css/tabulator.min.css">
+         <script src="libs/tabulator/6.3/js/tabulator.min.js"></script>
         
          <!--Files for custom css-->
          <link rel="stylesheet" href="libs/custom/main.css">
         
         <style>
-        html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-        /* Basic styling for the marketplace */
-        .product {
-            margin: 16px;
-            display: inline-block;
-            width: 300px;
-            box-sizing: border-box;
-        }
-        #cart {
-            border: 1px solid #ccc;
-            padding: 16px;
-            margin: 16px;
-        }
-        #product-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px; /* Adjusts the space between items */
-        }
-        .product div {
-            flex: 1; /* Ensures the div takes the available space */
-        }
+            html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         </style>
     </head>
     <body class="w3-light-grey">
@@ -91,7 +77,7 @@
         <!-- Top container -->
 <div class="w3-bar w3-top w3-large w3-white" style="z-index:4">
     <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-    <span class="w3-bar-item w3-right"><img src="files/logo/logo.png" style="width: 50px; height: 50px;"></span>
+    <span class="w3-bar-item w3-right"><img src="files/logo/unep_logo.png" style="width: 50px; height: 50px;"></span>
 </div>
 
 <!-- Sidebar/menu -->

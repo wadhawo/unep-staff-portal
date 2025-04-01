@@ -46,3 +46,8 @@
 [01-Apr-2025 09:38:32 UTC] PHP Warning:  mysqli::__construct(): (HY000/1049): Unknown database 'unep_staff_portal' in C:\AppServ\www\unep\server\conn.php on line 17
 [01-Apr-2025 09:40:46 UTC] PHP Warning:  mysqli::__construct(): (HY000/1049): Unknown database 'unep_staff_portal' in C:\AppServ\www\unep\server\conn.php on line 17
 [01-Apr-2025 09:45:55 UTC] PHP Warning:  mysqli::__construct(): (HY000/1049): Unknown database 'unep_staff_portal' in C:\AppServ\www\unep\server\conn.php on line 17
+[01-Apr-2025 10:01:02 UTC] PHP Warning:  mysqli::__construct(): (HY000/1049): Unknown database 'unep_staff_portal' in C:\AppServ\www\unep\server\conn.php on line 17
+[01-Apr-2025 10:01:28 UTC] PHP Warning:  mysqli::__construct(): (HY000/1049): Unknown database 'unep_staff_portal' in C:\AppServ\www\unep\server\conn.php on line 17
+[01-Apr-2025 10:01:51 UTC] PHP Warning:  mysqli::__construct(): (HY000/1049): Unknown database 'unep_staff_portal' in C:\AppServ\www\unep\server\conn.php on line 17
+[01-Apr-2025 10:05:14 UTC] PHP Notice:  Undefined index: user_id in C:\AppServ\www\unep\server\server.php on line 256
+[01-Apr-2025 10:05:54 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\AppServ\www\unep\server\conn.php on line 17

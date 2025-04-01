@@ -245,7 +245,7 @@ class DatabaseManager {
         #$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     
         // Query User table for username and hashed password
-        $userQuery = "SELECT * FROM Users WHERE username = '$username' AND password_hash = '$hashedPassword'";
+        $userQuery = "SELECT * FROM users WHERE username = '$username' AND password_hash = '$hashedPassword'";
         
         if($result = $this->conn->query($userQuery)){
             if ($result->num_rows > 0) {
@@ -255,8 +255,6 @@ class DatabaseManager {
                 // Store the user's ID in session
                 $_SESSION['user_id'] = $userData['user_id'];
                 $_SESSION['username'] = $userData['username'];
-                $_SESSION['first_name'] = $userData['first_name'];
-                $_SESSION['last_name'] = $userData['last_name'];
                 $_SESSION['role'] = $userData['role'];
         
                 // Set session cookie to expire in an hour
