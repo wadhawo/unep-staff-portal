@@ -10,7 +10,7 @@ ini_set('display_errors', 0); // Disable display of errors for production
 include 'conn.php';
 $db = new DatabaseManager(createConnection());
 
-$response = [];
+$response = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST["country"]) && isset($_POST["role"])) {
@@ -66,7 +66,7 @@ class DatabaseManager {
 
         if ($this->conn->query($query)) {
             $lastInsertId = $this->conn->insert_id; // Retrieve the last insert ID
-            return json_encode(['success' => true, 'message' => 'New product and photo successfully uploaded.', 'data' => [], 'last_insert'=>$lastInsertId]);
+            return json_encode(['success' => true, 'message' => 'Record created successfully.', 'data' => [], 'last_insert'=>$lastInsertId]);
         } else {
             return json_encode(['success' => false, 'message'=>'Error occured', 'data' => [], 'error'=>$this->conn->error]);
         }
@@ -152,7 +152,7 @@ class DatabaseManager {
                 $userData = $result->fetch_assoc();
         
                 // Store the user's ID in session
-                $_SESSION['user_id'] = $userData['user_id'];
+                $_SESSION['user_id'] = $userData['id'];
                 $_SESSION['username'] = $userData['username'];
                 $_SESSION['role'] = $userData['role'];
         
@@ -187,8 +187,7 @@ class DatabaseManager {
 function getOfflineData(){
     // Define an array to store table names
     $tables = [
-        'Categories','InventoryHistory','Logs','Notifications','OrderDetails','ProductAttributes',
-        'ProductListings','ReviewsRatings','Subcategories','SystemSettings','Transactions','Users'
+        'staff','education_levels','expertise_levels','responsibility_levels','languages','duty_stations', 'users'
     ];
     // Create an empty array to store the data
     $data = [];

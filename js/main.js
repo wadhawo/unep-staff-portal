@@ -54,10 +54,10 @@ async function getOfflineData() {
     const user_data = JSON.parse(localStorage.user);
 
     // Create data object to send
-    const data = { "user_id": user_data.user_id, "role": user_data.role,  "get_offline_data":"" };
+    const data = { "user_id": user_data.id, "role": user_data.role,  "get_offline_data":"" };
     // Create a FormData object since PHP expects form-data and not JSON
     var formData = new FormData();
-    formData.append("user_id", user_data.user_id); formData.append("role", user_data.role); formData.append("get_offline_data", "");
+    formData.append("user_id", user_data.id); formData.append("role", user_data.role); formData.append("get_offline_data", "");
 
     // Send a POST request with the data as JSON
     fetch('server/server.php', {  // Change this URL based on your PHP file location
@@ -296,8 +296,8 @@ window.onload = function() {
         //getOfflineData(); 
       }
       if(window.location.href.includes("admin.html")){  }
-      if(window.location.href.includes("users.html")){ //getOfflineData(); showUsersGrid(); 
-        alert("Loading data..."); 
+      if(window.location.href.includes("users.html")){ getOfflineData(); showUsersGrid(); 
+        console.log("Loading data..."); 
       }
 
     }else{ 

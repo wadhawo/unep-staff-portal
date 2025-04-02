@@ -1,10 +1,10 @@
 function showUsersGrid(){
   const offlineData = JSON.parse(localStorage.offlineData);
 
-  // Filter out unwanted columns from ProductListings
-  const filteredColumns = offlineData.Users.map(product => {
+  // Filter out unwanted columns from users data
+  const filteredColumns = offlineData.staff.map(user => {
       // Destructure to exclude specific properties
-      const { password_hash, username, ...filteredUsers } = product;
+      const { password_hash, username, ...filteredUsers } = user;
       return filteredUsers;
   });
   
@@ -17,6 +17,7 @@ function showUsersGrid(){
       resizable: true,
     });
     
+    document.getElementById("gridjs-wrapper").innerHTML="";
     users_table.on('rowClick', (...args) => extractDataFromGridJS(args));
     
     users_table.render(document.getElementById("gridjs-wrapper"));
