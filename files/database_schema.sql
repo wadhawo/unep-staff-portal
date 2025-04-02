@@ -71,3 +71,36 @@ CREATE TABLE staff (
 );
 
 INSERT INTO users (username, password_hash, ROLE) VALUES ('portal_admin', MD5('Walter123'), 'admin');
+
+--Additing default values for education levels
+insert into education_levels (level_name) values ('Diploma');
+insert into education_levels (level_name) values ('Bachelors');
+insert into education_levels (level_name) values ('Masters');
+insert into education_levels (level_name) values ('PhD');
+
+--Adding default values for duty stations
+insert into duty_stations (station_name) values ('Nairobi HQ');
+insert into duty_stations (station_name) values ('Regional');
+
+--Adding default values for expertise levels
+insert into expertise_levels (level_name) values ('Beginner');
+insert into expertise_levels (level_name) values ('Intermediate');
+insert into expertise_levels (level_name) values ('Advanced');
+insert into expertise_levels (level_name) values ('Expert');
+
+--Adding default values for software expertise
+insert into software_expertise (software_name) values ('Python');
+insert into software_expertise (software_name) values ('JavaScript');
+insert into software_expertise (software_name) values ('Java');
+insert into software_expertise (software_name) values ('PHP');
+
+--Adding default values for responsibility_levels
+insert into responsibility_levels (level_name) values ('Junior');
+insert into responsibility_levels (level_name) values ('Mid');
+insert into responsibility_levels (level_name) values ('Senior');
+
+--Additing default values for languages
+insert into languages (language_name) values ('English');
+insert into languages (language_name) values ('French');
+insert into languages (language_name) values ('Spanish');
+insert into languages (language_name) values ('Arabic');
